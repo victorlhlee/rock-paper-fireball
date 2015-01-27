@@ -11,7 +11,7 @@ var compare = function(player, computer) {
   if (outcome === 0 || outcome === 2 || outcome === 4) {
     return this.start();
   }
-  if(outcome === 1) {
+  if (outcome === 1) {
     return player.seal; //whoever has the seal 1;
   } 
    computerChoice = "scissors cutting sh*t up!";
