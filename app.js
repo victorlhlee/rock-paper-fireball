@@ -37,4 +37,4 @@ function compare(player, computer) {
   console.log(this.start(message));
   return this.start(message);
 
-};
+}
