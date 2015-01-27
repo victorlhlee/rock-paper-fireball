@@ -1,7 +1,5 @@
 //Rock, Paper, Scissors: Weird Naruto Edition
 
-(function(){
-
 var wins = 0;
 var losses = 0;
 var ties = 0;
@@ -48,5 +46,3 @@ console.log("Indra won "+ wins +" times, and Asura won "+ losses +" times.");
 status = (wins > losses) ? "Indra takes over." : "Asura takes over.";
 if(wins == losses) { status = "The struggle continues...";}
 console.log(status);
-
-})();
