@@ -8,7 +8,7 @@ function start(message){
 }
 
 function compare(player, computer) {
-  
+
   var fate = ((player + computer)%2);
 
   if ( fate === 0 ) {
@@ -34,6 +34,7 @@ function compare(player, computer) {
     }
   }
   
+  console.log(this.start(message));
   return this.start(message);
 
 };
