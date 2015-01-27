@@ -1,30 +1,48 @@
+//Rock, Paper, Scissors: Weird Naruto Edition
 
-function start(){
-    var playerChoice = prompt("what's yo weapon biotch?");
-    var computerChoice = Math.round(Math.random()* 2);
-    var outcome = playerChoice + computerChoice;
-    this.compare(playerChoice, computerChoice);
+var wins = 0;
+var losses = 0;
+var ties = 0;
+var cycle = 0; var limit = 20;
+var status = "Eternal struggle begins... ";
+
+
+function ouroboros(){
+
+  var jutsu1 = Math.round(Math.random()* 2);
+  var jutsu2 = Math.round(Math.random()* 2);
+  var indra = { seal: [ "Slug", "Frog", "Snake"]};
+  var asura = { seal: [ "Slug", "Frog", "Snake"]};
+  compare(jutsu1, jutsu2);
+  console.log("Clash #"+(cycle+1)+": "+ "Indra invokes "+indra.seal[jutsu1]+", Asura invokes "+asura.seal[jutsu2]+". "+status);
+
 }
 
-var compare = function(playerChoice, computerChoice) {
-if (outcome === 0 || outcome === 2 || outcome === 4) {
-    return this.start();
-} else if(outcome === 1 || outcome === 2 || outcome === 3 ) {
-    computerChoice = "paper stackin";
-// } else if (outcome === 1 || outcome === 2 || outcome === 3 ) {{
-//     computerChoice = "scissors cutting sh*t up!";
-// }
+function compare(indra, asura) {
+
+  if (indra == asura) { 
+    ties++; 
+    status = "Stalemate.";
+  } 
+  else if ((indra - asura + 3) % 3 == 1) {
+    wins++;
+    status = "Indra wins.";
+  }
+  else { 
+    losses++; 
+    status = "Asura wins.";
+  }
+
 }
-};
 
-compare(playerChoice, computerChoice);
+while(cycle<limit){
+  ouroboros();
+  cycle++;
+}
 
-
-
-// if (computerChoice === 0) {
-//     computerChoice = "rock n roll son";
-// } else if(computerChoice === 1) {
-//     computerChoice = "paper stackin";
-// } else {
-//     computerChoice = "scissors cutting sh*t up!";
-// }console.log("Computer: " + computerChoice);
+console.log("\nBattle report:");
+console.log("Indra and Asura have clashed "+limit+" times, with "+ties+" stalemates.");
+console.log("Indra won "+ wins +" times, and Asura won "+ losses +" times.");
+status = (wins > losses) ? "Indra takes over." : "Asura takes over.";
+if(wins == losses) { status = "The struggle continues...";}
+console.log(status);
